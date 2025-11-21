@@ -14,7 +14,7 @@ export default function HomePage() {
       <div className="max-w-3xl mx-auto text-center space-y-6 relative">
         <div className="inline-flex items-center gap-2">
           <Users className="w-4 h-4 text-slate-600 dark:text-slate-400" />
-          <span className="text-sm font-medium text-slate-600 dark:text-slate-400">
+          <span className="font-azeret text-sm font-medium text-slate-600 dark:text-slate-400">
             Community
           </span>
         </div>
