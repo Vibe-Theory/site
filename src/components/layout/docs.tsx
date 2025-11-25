@@ -18,12 +18,10 @@ import {
   TriangleAlert,
 } from "lucide-react";
 
-// Add theme hook
 function useTheme() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
   useEffect(() => {
-    // Load theme from localStorage or system preference
     const stored = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const initialTheme = stored as 'light' | 'dark' || (prefersDark ? 'dark' : 'light');
