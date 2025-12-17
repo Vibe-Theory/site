@@ -25,6 +25,9 @@ export default async function Page(
     <ViewTransition enter="docs-transition" exit="docs-transition">
       <DocsPage
         toc={page.data.toc}
+        tableOfContent={{
+          style: 'clerk'
+        }}
         full={page.data.full}
         editOnGithub={{
           owner: "HytaleModding",
