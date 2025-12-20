@@ -1,5 +1,5 @@
 "use client";
-import { ExternalLinkIcon, BookIcon } from "lucide-react";
+import { ExternalLinkIcon, BookIcon, MessageSquare } from "lucide-react";
 import { FlipWords } from "@/components/ui/flip-words";
 import { Spotlight } from "@/components/ui/spotlight-new";
 import { Button } from "@/components/ui/button";
@@ -105,6 +105,11 @@ export default function HomePage() {
               </Link>
             </Button>
             <DiscordButton />
+            <Button asChild>
+              <Link href="https://forum.hytalemodding.guide" target="_blank" rel="noopener noreferrer">
+                <MessageSquare /> Forum
+              </Link>
+            </Button>
           </div>
         </div>
 
