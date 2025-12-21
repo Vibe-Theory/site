@@ -25,24 +25,22 @@ interface ShowcaseItem {
   title: string;
   author: string;
   image?: StaticImageData;
-  imageUrl?: string;
-  logoUrl?: string;
-  bannerUrl?: string;
+  logo?: StaticImageData;
+  banner?: StaticImageData;
   link: string;
   type: ProjectType;
   description?: string;
 }
 
 const ShowcaseCard = ({ item }: { item: ShowcaseItem }) => {
-  const hasImage = item.image || item.imageUrl;
-  const hasLogo = item.logoUrl;
-  const hasBanner = item.bannerUrl;
+  const hasImage = item.image;
+  const hasLogo = item.logo;
+  const hasBanner = item.banner;
   
   return (
     <Card className="relative overflow-hidden w-96 h-64">
       <CardContent className="flex h-full items-center justify-center p-0">
         {hasImage ? (
-          // Art/image projects layout
           <>
             <div className="from-card absolute z-20 flex size-full items-end bg-linear-to-t from-15% to-transparent to-30% p-6">
               <div className="flex flex-1 flex-col">
@@ -68,35 +66,19 @@ const ShowcaseCard = ({ item }: { item: ShowcaseItem }) => {
                 </Link>
               </Button>
             </div>
-            {item.image && (
-              <Image
-                src={item.image}
-                alt={item.title}
-                className="absolute size-full object-cover opacity-30 blur-sm"
-              />
-            )}
-            {item.imageUrl && (
-              <img
-                src={item.imageUrl}
-                alt={item.title}
-                className="absolute size-full object-cover opacity-30 blur-sm"
-              />
-            )}
+            <Image
+              src={hasImage}
+              alt={item.title}
+              className="absolute size-full object-cover opacity-30 blur-sm"
+              fill
+            />
             <div className="z-10 flex size-full items-center justify-center">
-              {item.image && (
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  className="h-full w-auto overflow-hidden object-contain"
-                />
-              )}
-              {item.imageUrl && (
-                <img
-                  src={item.imageUrl}
-                  alt={item.title}
-                  className="h-full w-auto overflow-hidden object-contain"
-                />
-              )}
+              <Image
+                src={hasImage}
+                alt={item.title}
+                className="h-full w-auto overflow-hidden object-contain"
+                fill
+              />
             </div>
           </>
         ) : hasBanner ? (
@@ -105,10 +87,12 @@ const ShowcaseCard = ({ item }: { item: ShowcaseItem }) => {
               <div className="flex flex-1 flex-col">
                 {hasLogo && (
                   <div className="mb-2">
-                    <img
-                      src={item.logoUrl}
+                    <Image
+                      src={hasLogo}
                       alt={`${item.title} logo`}
                       className="h-8 w-8 object-contain rounded"
+                      width={32}
+                      height={32}
                     />
                   </div>
                 )}
@@ -134,10 +118,11 @@ const ShowcaseCard = ({ item }: { item: ShowcaseItem }) => {
                 </Link>
               </Button>
             </div>
-            <img
-              src={item.bannerUrl}
+            <Image
+              src={hasBanner}
               alt={item.title}
               className="absolute size-full object-cover"
+              fill
             />
           </>
         ) : (
@@ -145,10 +130,12 @@ const ShowcaseCard = ({ item }: { item: ShowcaseItem }) => {
             <div className="flex-1 flex flex-col justify-center">
               {hasLogo && (
                 <div className="flex justify-center mb-4">
-                  <img
-                    src={item.logoUrl}
+                  <Image
+                    src={hasLogo}
                     alt={`${item.title} logo`}
                     className="h-16 w-16 object-contain rounded-lg"
+                    width={64}
+                    height={64}
                   />
                 </div>
               )}
@@ -224,7 +211,6 @@ export default function HomePage() {
       link: "https://discord.gg/f2fMKYnRqR",
       type: 'art'
     },
-    
   ];
 
   const shuffledItems = [...showcaseItems].sort(() => Math.random() - 0.5);
