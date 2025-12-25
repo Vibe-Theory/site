@@ -27,6 +27,8 @@ import GaleWivern from "./(showcaseImages)/gale_wivern.gif";
 import WulfrumArmor from "./(showcaseImages)/Wulfrum_Armor.gif";
 import ElectricMotor from "./(showcaseImages)/HyEnergy_Electric_Motor.gif";
 import WulfrumTriangle from "./(showcaseImages)/Wulfrum_triangle.gif";
+import HylandiaBanner from "./(showcaseImages)/Hylandia_Banner.png";
+import HylandiaLogo from "./(showcaseImages)/Hylandia_Logo.png";
 import { DiscordButton } from "./discord-button";
 import { SponsorButton } from "./support-button";
 import { GitInfoButton } from "@/components/git-info-button";
@@ -238,6 +240,15 @@ export default function HomePage() {
       image: WulfrumTriangle,
       link: "https://discord.gg/f2fMKYnRqR",
       type: "art",
+    },
+    {
+      title: "Hylandia",
+      author: "by Kristian / Hylandia Studios",
+      logo: HylandiaLogo,
+      banner: HylandiaBanner,
+      link: "https://discord.gg/hylandia",
+      type: "server",
+      description: "A progressive minigames server for Hytale where your progress actually matters.",
     }
   ];
 
