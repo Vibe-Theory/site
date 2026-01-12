@@ -22,12 +22,12 @@ $`git rev-parse --abbrev-ref HEAD`.then((branch) => {
 });
 
 console.log("Finished generating git-info.json");
-console.log("Clearing image fetch cache...");
+// console.log("Clearing image fetch cache...");
 
-await rmdir(".next/cache/images", { recursive: true }).catch((err) => {
-  if (err.code !== "ENOENT") {
-    console.error("Failed to clear image fetch cache:", err);
-  }
-});
+// await rmdir(".next/cache/images", { recursive: true }).catch((err) => {
+//   if (err.code !== "ENOENT") {
+//     console.error("Failed to clear image fetch cache:", err);
+//   }
+// });
 
-console.log("Image fetch cache cleared.");
+// console.log("Image fetch cache cleared.");
