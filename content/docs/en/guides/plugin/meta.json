@@ -5,8 +5,7 @@
     "creating-commands.mdx",
     "creating-events.mdx",
     "chat-formatting.mdx",
-    "...",
-    "worldgen"
+    "..."
   ],
   "icon": "Terminal"
 }
